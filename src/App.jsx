@@ -1,48 +1,48 @@
-import React from "react"
+import React from "react";
+import './App.css';
+import Product from './Product';
 function App(){
-  let title1="Women Blouse"
-  let img1= "https://m.media-amazon.com/images/I/61NQoUmuKeL._AC_UY445_.jpg"
-  let price1 = 23.67;
-  let discountPrice1 = 20
 
-  let title2="Headset"
-  let img2= "https://m.media-amazon.com/images/I/61Zh467pKjL._AC_UL320_.jpg"
-  let price2 = 2.67;
-  let discountPrice2 = 1.5
-
-  let title3="LED"
-  let img3= "https://m.media-amazon.com/images/I/81Yiw8Zk0uL._AC_UL320_.jpg"
-  let price3 = 5.67;
-  let discountPrice3 = 3.5
+  const products =[
+    {
+      title:"Women Blouse", img:"https://m.media-amazon.com/images/I/61NQoUmuKeL._AC_UY445_.jpg", price:23.68, discountPrice :20  
+    },
+    {
+       title:"Headset",
+      img:"https://m.media-amazon.com/images/I/61Zh467pKjL._AC_UL320_.jpg",
+      price:2.67,
+      discountPrice:1.5
+    
+    }, 
+    {
+       title:"LED",
+      img:"https://m.media-amazon.com/images/I/81Yiw8Zk0uL._AC_UL320_.jpg",
+      price:5.67,
+      discountPrice:3.5
+  }
+  ]
 // Javascript goes here
 
+
+
   return(
-            <div>
-             <Img  title={title1} img={img1} price={price1} discount={discountPrice1}/>
-             <Img title={title2} img={img2} price={price2} discount={discountPrice2} />
-             <Img  title={title3} img={img3} price={price3} discount={discountPrice3}/>
-           
+            // <div style={{display: 'flex' }}>
+            <div className="container">
+              {
+                (products.length >0 ) ?
+             
+                products.map((value, index)=>{
+                  return (
+                    <div key={index}  className="product">
+                    <Product   title={value.title} img={value.img} price={value.price} discount={value.discountPrice} />
+                   </ div>
+                  )
+                }) :
+                <h2>No Product available</h2>
+              }
+             {/* <Img/> */}
           </div>
   )
-
+  
 }
-
-function Img(props){
-
-    return (
-      <React.Fragment>
-         <h2>{props.title}</h2>
-             <img src={props.img}/>
-             <div>
-             Original Price: {props.price}  <br />
-             Discount Price {props.discount} <br/>
-             </div>
-             <div>
-              <a href="" > Detail</a> <br />
-              <button>Buy</button>
-             </div>
-        </React.Fragment>
-    )
-}
-
 export default App
