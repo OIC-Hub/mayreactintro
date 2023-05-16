@@ -1,0 +1,29 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar{
+    display: flex;
+    
+}
+
+.navbar li{
+    padding: 10px 16px;
+    margin:10px;
+    background-color: black;
+    list-style-type:none;
+
+
+}
+
+.navbar li a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.navbar li a:hover{
+    color: orangered;
+   
+}

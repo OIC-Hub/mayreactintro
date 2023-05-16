@@ -1,8 +1,10 @@
 import {Link} from "react-router-dom";
-function NavBar() {
+
+function NavBar(props) {
   return (
-  <header>
-    <ul className='navbar'>
+  <header className={props.style.nav}>
+    <div>OIC Hub LTD</div>
+    <ul className={props.style.navbar}>
         <li>
             <Link to="/">Home</Link>
         </li>
@@ -14,6 +16,9 @@ function NavBar() {
         </li>
         <li>
             <Link to='/services'> Services</Link>
+        </li>
+        <li>
+            <Link to='/register'>Register</Link>
         </li>
     </ul>
   </header>
