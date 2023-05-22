@@ -1,27 +1,17 @@
- import Product  from "../components/Product"
+ import { useEffect, useState } from "react"
+import Product  from "../components/Product"
+ import axios from 'axios'
 function Products(){
-    const products =[
-      {
-        title:"Women Blouse", img:"https://m.media-amazon.com/images/I/61NQoUmuKeL._AC_UY445_.jpg", price:23.68, discountPrice :20  
-      },
-      {
-         title:"Headset",
-        img:"https://m.media-amazon.com/images/I/61Zh467pKjL._AC_UL320_.jpg",
-        price:2.67,
-        discountPrice:1.5
-      
-      }, 
-      {
-         title:"LED",
-        img:"https://m.media-amazon.com/images/I/81Yiw8Zk0uL._AC_UL320_.jpg",
-        price:5.67,
-        discountPrice:3.5
-    }
-    ]
-  // Javascript goes here
-  
-  
-  
+  const[products, setProducts]=useState([]);
+  function fetchProducts(){
+  axios.get('https://dummyjson.com/products')
+  .then(response =>{
+    setProducts(response.data.products)
+  })
+}
+useEffect(()=>{
+  fetchProducts()
+}, [])
     return(
               // <div style={{display: 'flex' }}>
               <div className="container">
@@ -31,11 +21,11 @@ function Products(){
                   products.map((value, index)=>{
                     return (
                       <div key={index}  className="product">
-                      <Product   title={value.title} img={value.img} price={value.price} discount={value.discountPrice} />
+                      <Product  description={value.description}  title={value.title} img={value.images[0]} price={value.price} discount={value.discountPercentage} />
                      </ div>
                     )
                   }) :
-                  <h2>No Product available</h2>
+                  <h2>Products Loading...</h2>
                 }
                {/* <Img/> */}
             </div>

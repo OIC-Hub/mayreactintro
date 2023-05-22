@@ -34,7 +34,7 @@ const submitData = (e)=>{
     })
    }
  console.log(errors)
-  if(Object.keys(errors).length === 0){
+  if(errors.length === 0){
 
   }
 }

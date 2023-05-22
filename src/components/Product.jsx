@@ -10,6 +10,7 @@ function Product(props){
         <div>
            <h2>{props.title}</h2>
                <img src={props.img}/>
+               <p>{props.description}</p>
                <div>
                Original Price: {props.price}  <br />
                Discount Price {props.discount} <br/>
