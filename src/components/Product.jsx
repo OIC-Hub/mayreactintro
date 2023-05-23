@@ -1,5 +1,7 @@
-function Product(props){
+import { Link } from "react-router-dom"
 
+function Product(props){
+console.log(props)
     // let mainStyle={
     //   width: '31%',
     //   margin: '2.33%',
@@ -16,7 +18,7 @@ function Product(props){
                Discount Price {props.discount} <br/>
                </div>
                <div>
-                <a href=""  className="btn"> Detail</a> 
+                <Link to={`../details/${props.id}`} className="btn"> Detail</Link> 
                 <button className="btn">Buy</button>
                </div>
           </div>

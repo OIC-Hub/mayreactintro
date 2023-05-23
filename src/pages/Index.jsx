@@ -4,10 +4,16 @@ import axios from "axios";
 function Index() {
 
   const[products, setProducts] = useState([]);
+  const [searchProd, setSearchProd] = useState();
+
   function fetchData(){
  axios.get('https://dummyjson.com/products?limit=10')
  .then(res =>{
+  if(localStorage.getItem(products)){
+    setProducts(JSON.parse(localStorage.getItem(products)))
+  }else{
     setProducts(res.data.products)
+  }
  }).catch( err =>{
   console.log(err)
  })
@@ -17,9 +23,9 @@ useEffect(()=>{
 }, [])
   return (
     <div>
-    {products.length > 0 ? products.map((value, index =>{
+    {products.length > 0 ? products.map((value, index) =>{
        <Home /> 
-    })) :
+    }) :
      <p>Products LOading...</p>
     
     }

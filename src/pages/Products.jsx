@@ -21,7 +21,7 @@ useEffect(()=>{
                   products.map((value, index)=>{
                     return (
                       <div key={index}  className="product">
-                      <Product  description={value.description}  title={value.title} img={value.images[0]} price={value.price} discount={value.discountPercentage} />
+                      <Product  id={value.id} description={value.description}  title={value.title} img={value.images[0]} price={value.price} discount={value.discountPercentage} />
                      </ div>
                     )
                   }) :
